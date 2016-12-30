@@ -1,0 +1,82 @@
+[
+  {
+    "title": "General",
+    "questions": [
+      {
+        "title": "Which number is the biggest?",
+        "type": "choose",
+        "difficulty": 30,
+        "answers": [
+          {
+            "title": "1",
+            "correct": false,
+            "fifty": true
+          },
+          {
+            "title": "10",
+            "correct": true,
+            "fifty": true
+          },
+          {
+            "title": "3",
+            "correct": false,
+            "fifty": false
+          },
+          {
+            "title": "8",
+            "correct": false,
+            "fifty": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Movies",
+    "questions": [
+      {
+        "title": "What's on the video?",
+        "type": "video",
+        "difficulty": 20,
+        "answers": [
+          {
+            "title": "A helicopter",
+            "url": "http://techslides.com/demos/sample-videos/small.mp4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Sound",
+    "questions": [
+      {
+        "title": "What's this sound?",
+        "type": "sound",
+        "difficulty": 10,
+        "answers": [
+          {
+            "title": "Finger snap",
+            "url": "http://geekanddummy.com/wp-content/uploads/2014/02/finger-snap-click.mp3"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Image",
+    "questions": [
+      {
+        "title": "Which dimension has this image?",
+        "type": "image",
+        "difficulty": 50,
+        "answers": [
+          {
+            "title": "800 x 450",
+            "url": "https://dummyimage.com/800x450/000/fff"
+          }
+        ]
+      }
+    ]
+  }
+]
