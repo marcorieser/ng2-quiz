@@ -18,6 +18,7 @@ var http_1 = require("@angular/http");
 var question_service_1 = require("./shared/service/question.service");
 var question_component_1 = require("./question/question.component");
 var question_detail_component_1 = require("./question/question-detail.component");
+var group_service_1 = require("./shared/service/group.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -27,7 +28,7 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
         declarations: [app_component_1.AppComponent, question_component_1.QuestionComponent, question_detail_component_1.QuestionDetailComponent],
-        providers: [question_service_1.QuestionService],
+        providers: [question_service_1.QuestionService, group_service_1.GroupService],
         bootstrap: [app_component_1.AppComponent]
     }),
     __metadata("design:paramtypes", [])

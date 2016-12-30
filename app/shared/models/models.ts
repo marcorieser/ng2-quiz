@@ -18,3 +18,9 @@ export class Answer {
     fifty?: boolean;
     choosen: boolean;
 }
+export class Group {
+    "name": string;
+    "score": number;
+    "fifty": number;
+    "phone": number;
+}

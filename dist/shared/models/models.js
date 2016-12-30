@@ -17,5 +17,11 @@ var Answer = (function () {
     return Answer;
 }());
 exports.Answer = Answer;
+var Group = (function () {
+    function Group() {
+    }
+    return Group;
+}());
+exports.Group = Group;
 
 //# sourceMappingURL=models.js.map

@@ -16,7 +16,7 @@
         <question-detail [question]="activeQuestion" (questionAnswered)="questionAnswered($event)" (switchGroup)="switchGroup()"></question-detail>
     </template>
 </div>
-<div class="bottom-bar">
+<div class="bottom-bar" *ngIf="groups">
     <div class="container">
         <div class="row">
             <div class="col-xs-3">
@@ -43,4 +43,7 @@
             </div>
         </div>
     </div>
+</div>
+<div class="reset" (click)="resetGame()">
+    <span class="glyphicon glyphicon-off"></span>
 </div>

@@ -9,11 +9,12 @@ import {HttpModule} from "@angular/http";
 import {QuestionService} from "./shared/service/question.service";
 import {QuestionComponent} from "./question/question.component";
 import {QuestionDetailComponent} from "./question/question-detail.component";
+import {GroupService} from "./shared/service/group.service";
 
 @NgModule({
     imports: [BrowserModule, HttpModule],
     declarations: [AppComponent, QuestionComponent, QuestionDetailComponent],
-    providers: [QuestionService],
+    providers: [QuestionService, GroupService],
     bootstrap: [AppComponent]
 })
 

@@ -10,45 +10,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var question_service_1 = require("./shared/service/question.service");
+var group_service_1 = require("./shared/service/group.service");
 var AppComponent = (function () {
-    function AppComponent(questionService) {
+    function AppComponent(questionService, groupService) {
         this.questionService = questionService;
-        this.groups = [
-            {
-                name: 'Gruppe 1',
-                score: 0,
-                fifty: 1,
-                phone: 1
-            },
-            {
-                name: 'Gruppe 2',
-                score: 0,
-                fifty: 1,
-                phone: 1
-            }
-        ];
+        this.groupService = groupService;
     }
     AppComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.questionService.getQuestions()
-            .subscribe(function (questions) {
-            _this.questions = questions;
-            var id = 0, index = 1;
-            for (var _i = 0, _a = _this.questions; _i < _a.length; _i++) {
-                var category = _a[_i];
-                for (var _b = 0, _c = category.questions; _b < _c.length; _b++) {
-                    var question = _c[_b];
-                    question.id = id;
-                    question.index = index;
-                    question.answered = false;
-                    id++;
-                    index++;
-                }
-                index = 1;
-            }
-        });
-        this.activeGroup = 0;
-        this.lastTurn = 0;
+        if (this.loadGame()) {
+            return;
+        }
+        this.initializeGame();
     };
     AppComponent.prototype.selectQuestion = function (question) {
         if (question.answered) {
@@ -67,6 +39,7 @@ var AppComponent = (function () {
         this.activeGroup = this.lastTurn === 0 ? 1 : 0;
         this.lastTurn = this.activeGroup;
         this.activeQuestion = null;
+        this.saveGame();
     };
     AppComponent.prototype.jokerAvailable = function (type, group) {
         if (!this.activeQuestion) {
@@ -96,15 +69,65 @@ var AppComponent = (function () {
             answer.choosen = true;
         }
     };
+    AppComponent.prototype.initializeGame = function () {
+        var _this = this;
+        this.activeGroup = Math.floor(Math.random() * (1 + 1));
+        this.lastTurn = this.activeGroup;
+        this.activeQuestion = null;
+        this.questionService.getQuestions()
+            .subscribe(function (questions) {
+            _this.questions = questions;
+            var id = 0, index = 1;
+            for (var _i = 0, _a = _this.questions; _i < _a.length; _i++) {
+                var category = _a[_i];
+                for (var _b = 0, _c = category.questions; _b < _c.length; _b++) {
+                    var question = _c[_b];
+                    question.id = id;
+                    question.index = index;
+                    question.answered = false;
+                    id++;
+                    index++;
+                }
+                index = 1;
+            }
+            _this.groupService.getGroups()
+                .subscribe(function (groups) {
+                _this.groups = groups;
+                _this.saveGame();
+            });
+        });
+    };
+    AppComponent.prototype.resetGame = function () {
+        localStorage.removeItem('questions');
+        localStorage.removeItem('lastTurn');
+        localStorage.removeItem('groups');
+        this.initializeGame();
+    };
+    AppComponent.prototype.loadGame = function () {
+        var questions = localStorage.getItem('questions'), lastTurn = localStorage.getItem('lastTurn'), groups = localStorage.getItem('groups');
+        if (questions === null || lastTurn === null || groups === null) {
+            return false;
+        }
+        this.questions = JSON.parse(questions);
+        this.lastTurn = JSON.parse(lastTurn);
+        this.groups = JSON.parse(groups);
+        this.activeGroup = this.lastTurn;
+        return true;
+    };
+    AppComponent.prototype.saveGame = function () {
+        localStorage.setItem('questions', JSON.stringify(this.questions));
+        localStorage.setItem('lastTurn', JSON.stringify(this.lastTurn));
+        localStorage.setItem('groups', JSON.stringify(this.groups));
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'quiz-app',
         templateUrl: './app/app.component.html',
-        styleUrls: ['./app/app.component.css']
+        styleUrls: ['./app/app.component.css'],
     }),
-    __metadata("design:paramtypes", [question_service_1.QuestionService])
+    __metadata("design:paramtypes", [question_service_1.QuestionService, group_service_1.GroupService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 

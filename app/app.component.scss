@@ -9,6 +9,17 @@ h1 {
     align-items: center;
 }
 
+.reset {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
 .grid {
     display: flex;
     height: 70vh;
