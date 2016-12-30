@@ -1,3 +1,46 @@
-<div class="jumbotron">
-    <h1>Welcome to Our App!</h1>
+<div class="container">
+    <template [ngIf]="!activeQuestion">
+        <h1>Silvester-Quiz</h1>
+        <template [ngIf]="questions">
+            <div class="grid">
+                <div class="col" *ngFor="let category of questions">
+                    <div class="title">{{ category.title }}</div>
+                    <div class="questions" *ngIf="category.questions">
+                        <question *ngFor="let question of category.questions" [question]="question" [class.available]="!question.answered" (click)="selectQuestion(question)"></question>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </template>
+    <template [ngIf]="activeQuestion">
+        <question-detail [question]="activeQuestion" (questionAnswered)="questionAnswered($event)" (switchGroup)="switchGroup()"></question-detail>
+    </template>
+</div>
+<div class="bottom-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="group" [class.active]="groups[0] === groups[activeGroup]">
+                    <span class="score">{{ groups[0].name }}:</span> {{ groups[0].score }} Punkte
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="jokers">
+                    <span [class.active]="jokerAvailable('fifty', 0)" (click)="setJoker('fifty', 0)">{{ groups[0].fifty }}x <span class="glyphicon glyphicon-th-large"></span></span>
+                    <span [class.active]="jokerAvailable('phone', 0)" (click)="setJoker('phone', 0)">{{ groups[0].phone }}x <span class="glyphicon glyphicon-phone-alt"></span></span>
+                </div>
+            </div>
+            <div class="col-xs-3 text-right">
+                <div class="jokers">
+                    <span [class.active]="jokerAvailable('phone', 1)" (click)="setJoker('phone', 1)"><span class="glyphicon glyphicon-phone-alt"></span> x{{ groups[1].phone }}</span>
+                    <span [class.active]="jokerAvailable('fifty', 1)" (click)="setJoker('fifty', 1)"><span class="glyphicon glyphicon-th-large"></span> x{{ groups[1].fifty }}</span>
+                </div>
+            </div>
+            <div class="col-xs-3 text-right">
+                <div class="group" [class.active]="groups[1] === groups[activeGroup]">
+                    <span class="score">{{ groups[1].name }}:</span> {{ groups[1].score }} Punkte
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

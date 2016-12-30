@@ -1,0 +1,55 @@
+<h2 *ngIf="!solutionVisible">{{ question.title }}</h2>
+<h2 *ngIf="solutionVisible">{{ question.answers[0].title }}</h2>
+<div [ngSwitch]="question.type">
+    <template [ngSwitchCase]="'choose'">
+        <div class="grid clearfix">
+            <div class="pattern" *ngFor="let answer of question.answers" (click)="evaluateChoose(answer)" [class.available]="!answer.choosen">
+                {{ answer.title }}
+            </div>
+        </div>
+    </template>
+
+    <template [ngSwitchCase]="'video'">
+        <div class="video">
+            <video [src]="question.answers[0].url" autoplay controls></video>
+            <div class="solution-bar text-right" *ngIf="solutionVisible">
+                <h3>Richtig beantwortet?</h3>
+                <a class="btn btn-default" (click)="evaluateOthers(true)">Ja</a>
+                <a class="btn btn-default" (click)="evaluateOthers(false)">Nein</a>
+            </div>
+        </div>
+        <div class="text-right">
+            <a class="btn btn-default" *ngIf="!solutionVisible" (click)="solutionVisible = true">Lösung anzeigen</a>
+            <a class="btn btn-default" *ngIf="solutionVisible" (click)="solutionVisible = false">Lösung verbergen</a>
+        </div>
+    </template>
+
+    <template [ngSwitchCase]="'sound'">
+        <div class="audio">
+            <audio [src]="question.answers[0].url" autoplay controls></audio>
+            <div class="solution-bar text-right" *ngIf="solutionVisible">
+                <h3>Richtig beantwortet?</h3>
+                <a class="btn btn-default" (click)="evaluateOthers(true)">Ja</a>
+                <a class="btn btn-default" (click)="evaluateOthers(false)">Nein</a>
+            </div>
+        </div>
+        <div class="text-right">
+            <a class="btn btn-default" *ngIf="!solutionVisible" (click)="solutionVisible = true">Lösung anzeigen</a>
+            <a class="btn btn-default" *ngIf="solutionVisible" (click)="solutionVisible = false">Lösung verbergen</a>
+        </div>
+    </template>
+
+    <template [ngSwitchCase]="'image'">
+        <div class="image" [style.background-image]="'url('+question.answers[0].url+')'">
+            <div class="solution-bar text-right" *ngIf="solutionVisible">
+                <h3>Richtig beantwortet?</h3>
+                <a class="btn btn-default" (click)="evaluateOthers(true)">Ja</a>
+                <a class="btn btn-default" (click)="evaluateOthers(false)">Nein</a>
+            </div>
+        </div>
+        <div class="text-right">
+            <a class="btn btn-default" *ngIf="!solutionVisible" (click)="solutionVisible = true">Lösung anzeigen</a>
+            <a class="btn btn-default" *ngIf="solutionVisible" (click)="solutionVisible = false">Lösung verbergen</a>
+        </div>
+    </template>
+</div>

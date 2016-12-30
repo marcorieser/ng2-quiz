@@ -1,11 +1,12 @@
-html {
+html, body {
     height: 100%;
 }
 
 body {
-    min-height: 100%;
+    padding-bottom: 80px;
+    -webkit-font-smoothing: antialiased;
 }
 
-my-app {
+quiz-app {
     display: block;
 }

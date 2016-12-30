@@ -1,0 +1,549 @@
+[
+  {
+    "title": "Allgemein",
+    "questions": [
+      {
+        "title": "Wer war nach Donald Trump der erfolgreichste Kandidat der Republikaner in der Wahl 2016?",
+        "type": "choose",
+        "difficulty": 30,
+        "answers": [
+          {
+            "title": "Bernie Sanders",
+            "correct": false,
+            "fifty": true
+          },
+          {
+            "title": "Ted Cruz",
+            "correct": true,
+            "fifty": true
+          },
+          {
+            "title": "John Kasich",
+            "correct": false,
+            "fifty": false
+          },
+          {
+            "title": "Mike Huckabee",
+            "correct": false,
+            "fifty": false
+          }
+        ]
+      },
+      {
+        "title": "Welcher der folgenden Seen ist der tiefste?",
+        "type": "choose",
+        "difficulty": 20,
+        "answers": [
+          {
+            "title": "Genfersee",
+            "correct": true,
+            "fifty": true
+          },
+          {
+            "title": "Zürichsee",
+            "correct": false,
+            "fifty": false
+          },
+          {
+            "title": "Vierwaldstättersee",
+            "correct": false,
+            "fifty": false
+          },
+          {
+            "title": "Bodensee",
+            "correct": false,
+            "fifty": true
+          }
+        ]
+      },
+      {
+        "title": "Welche der Zahlen ist keine Primzahl?",
+        "type": "choose",
+        "difficulty": 20,
+        "answers": [
+          {
+            "title": "105",
+            "correct": true,
+            "fifty": true
+          },
+          {
+            "title": "137",
+            "correct": false,
+            "fifty": true
+          },
+          {
+            "title": "59",
+            "correct": false,
+            "fifty": false
+          },
+          {
+            "title": "19",
+            "correct": false,
+            "fifty": false
+          }
+        ]
+      },
+      {
+        "title": "Was versteht man unter \"hyperneurokustische Diafragmakontravibrationen\"?",
+        "type": "choose",
+        "difficulty": 30,
+        "answers": [
+          {
+            "title": "Schnarchen",
+            "correct": false,
+            "fifty": true
+          },
+          {
+            "title": "Husten",
+            "correct": false,
+            "fifty": false
+          },
+          {
+            "title": "Schluckauf",
+            "correct": true,
+            "fifty": true
+          },
+          {
+            "title": "Rülpsen",
+            "correct": false,
+            "fifty": false
+          }
+        ]
+      },
+      {
+        "title": "Aus welchem Land kommt die Spielzeug-Marke \"Lego\"?",
+        "type": "choose",
+        "difficulty": 10,
+        "answers": [
+          {
+            "title": "Niederlande",
+            "correct": false,
+            "fifty": false
+          },
+          {
+            "title": "Belgien",
+            "correct": false,
+            "fifty": false
+          },
+          {
+            "title": "Dänemark",
+            "correct": true,
+            "fifty": true
+          },
+          {
+            "title": "Norwegen",
+            "correct": false,
+            "fifty": true
+          }
+        ]
+      },
+      {
+        "title": "Was bedeutet das griechisch ausgesprochene Wort \"jassu\" übersetzt?",
+        "type": "choose",
+        "difficulty": 20,
+        "answers": [
+          {
+            "title": "Gesundheit",
+            "correct": false,
+            "fifty": false
+          },
+          {
+            "title": "Prost",
+            "correct": false,
+            "fifty": true
+          },
+          {
+            "title": "Wasser",
+            "correct": false,
+            "fifty": false
+          },
+          {
+            "title": "Hallo",
+            "correct": true,
+            "fifty": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Bibel",
+    "questions": [
+      {
+        "title": "Wie hiess die Frau von Isaak?",
+        "type": "choose",
+        "difficulty": 20,
+        "answers": [
+          {
+            "title": "Rebekka",
+            "correct": true,
+            "fifty": true
+          },
+          {
+            "title": "Ruth",
+            "correct": false,
+            "fifty": false
+          },
+          {
+            "title": "Rahel",
+            "correct": false,
+            "fifty": true
+          },
+          {
+            "title": "Rahab",
+            "correct": false,
+            "fifty": false
+          }
+        ]
+      },
+      {
+        "title": "Wer war Ehud?",
+        "type": "choose",
+        "difficulty": 40,
+        "answers": [
+          {
+            "title": "Der erste Goldschmied",
+            "correct": false,
+            "fifty": true
+          },
+          {
+            "title": "Der Mörder König Ahabs",
+            "correct": false,
+            "fifty": false
+          },
+          {
+            "title": "Der zweite Richter",
+            "correct": true,
+            "fifty": true
+          },
+          {
+            "title": "Einer der Söhne von Aaron",
+            "correct": false,
+            "fifty": false
+          }
+        ]
+      },
+      {
+        "title": "Welchen Zweit-Namen gab Gott König Salomo?",
+        "type": "choose",
+        "difficulty": 30,
+        "answers": [
+          {
+            "title": "Jemima",
+            "correct": false,
+            "fifty": false
+          },
+          {
+            "title": "Jedidja",
+            "correct": true,
+            "fifty": true
+          },
+          {
+            "title": "Keren-Happuch",
+            "correct": false,
+            "fifty": false
+          },
+          {
+            "title": "Kezia",
+            "correct": false,
+            "fifty": true
+          }
+        ]
+      },
+      {
+        "title": "Welcher Fluss war für sein Goldvorkommen bekannt?",
+        "type": "choose",
+        "difficulty": 30,
+        "answers": [
+          {
+            "title": "Jordan",
+            "correct": false,
+            "fifty": false
+          },
+          {
+            "title": "Pischon",
+            "correct": true,
+            "fifty": true
+          },
+          {
+            "title": "Gihon",
+            "correct": false,
+            "fifty": false
+          },
+          {
+            "title": "Tigris",
+            "correct": false,
+            "fifty": true
+          }
+        ]
+      },
+      {
+        "title": "Welches Buch folgt dem Buch des Esra?",
+        "type": "choose",
+        "difficulty": 10,
+        "answers": [
+          {
+            "title": "Nehemia",
+            "correct": true,
+            "fifty": true
+          },
+          {
+            "title": "Esther",
+            "correct": false,
+            "fifty": true
+          },
+          {
+            "title": "Hiob",
+            "correct": false,
+            "fifty": false
+          },
+          {
+            "title": "Hesekiel",
+            "correct": false,
+            "fifty": false
+          }
+        ]
+      },
+      {
+        "title": "Was war die Folge der Volkszählung durch König David?",
+        "type": "choose",
+        "difficulty": 20,
+        "answers": [
+          {
+            "title": "Sieben Jahre Hungersnot in ganz Israel",
+            "correct": false,
+            "fifty": true
+          },
+          {
+            "title": "Die Pest wütete drei Tagen lang",
+            "correct": true,
+            "fifty": true
+          },
+          {
+            "title": "David musste 3 Monate von seinen Feinden fliehen",
+            "correct": false,
+            "fifty": false
+          },
+          {
+            "title": "Davids ältester Sohn starb",
+            "correct": false,
+            "fifty": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Film",
+    "questions": [
+      {
+        "title": "Wie heisst das Schwein in diesem Film?",
+        "type": "video",
+        "difficulty": 20,
+        "answers": [
+          {
+            "title": "Babe",
+            "url": "/assets/video/video1.mp4"
+          }
+        ]
+      },
+      {
+        "title": "Wie heisst dieser Film?",
+        "type": "video",
+        "difficulty": 20,
+        "answers": [
+          {
+            "title": "Kevin - Allein zu Haus",
+            "url": "/assets/video/video2.mp4"
+          }
+        ]
+      },
+      {
+        "title": "Wie heisst dieser Film?",
+        "type": "video",
+        "difficulty": 20,
+        "answers": [
+          {
+            "title": "Der Ghostwriter",
+            "url": "/assets/video/video3.mp4"
+          }
+        ]
+      },
+      {
+        "title": "Was ist die Berufsbezeichnung des Hauptdarstellers?",
+        "type": "video",
+        "difficulty": 20,
+        "answers": [
+          {
+            "title": "Looper",
+            "url": "/assets/video/video4.mp4"
+          }
+        ]
+      },
+      {
+        "title": "Wie heisst dieser Film?",
+        "type": "video",
+        "difficulty": 20,
+        "answers": [
+          {
+            "title": "Blackhat",
+            "url": "/assets/video/video5.mp4"
+          }
+        ]
+      },
+      {
+        "title": "Wie heisst dieser Film?",
+        "type": "video",
+        "difficulty": 20,
+        "answers": [
+          {
+            "title": "Message in a Bottle",
+            "url": "/assets/video/video6.mp4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Ton",
+    "questions": [
+      {
+        "title": "Was ist das für ein Geräusch?",
+        "type": "sound",
+        "difficulty": 10,
+        "answers": [
+          {
+            "title": "Zahnarztbohrer",
+            "url": "/assets/sound/sound1.mp3"
+          }
+        ]
+      },
+      {
+        "title": "Was ist das für ein Geräusch?",
+        "type": "sound",
+        "difficulty": 30,
+        "answers": [
+          {
+            "title": "Gasmaske",
+            "url": "/assets/sound/sound2.mp3"
+          }
+        ]
+      },
+      {
+        "title": "Was ist das für ein Geräusch?",
+        "type": "sound",
+        "difficulty": 20,
+        "answers": [
+          {
+            "title": "Kamel",
+            "url": "/assets/sound/sound3.mp3"
+          }
+        ]
+      },
+      {
+        "title": "Was ist das für ein Geräusch?",
+        "type": "sound",
+        "difficulty": 30,
+        "answers": [
+          {
+            "title": "Feuerlöscher",
+            "url": "/assets/sound/sound4.mp3"
+          }
+        ]
+      },
+      {
+        "title": "Was ist das für ein Geräusch?",
+        "type": "sound",
+        "difficulty": 20,
+        "answers": [
+          {
+            "title": "Brausetablette",
+            "url": "/assets/sound/sound5.mp3"
+          }
+        ]
+      },
+      {
+        "title": "Was ist das für ein Geräusch?",
+        "type": "sound",
+        "difficulty": 20,
+        "answers": [
+          {
+            "title": "Pfeil abschiessen",
+            "url": "/assets/sound/sound6.mp3"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Bild",
+    "questions": [
+      {
+        "title": "Welche Organsation hat diese Person gegründet?",
+        "type": "image",
+        "difficulty": 50,
+        "answers": [
+          {
+            "title": "Das Rote Kreuz",
+            "url": "/assets/image/image1.jpg"
+          }
+        ]
+      },
+      {
+        "title": "Wer ist diese Person?",
+        "type": "image",
+        "difficulty": 10,
+        "answers": [
+          {
+            "title": "Neymar Jr.",
+            "url": "/assets/image/image2.jpg"
+          }
+        ]
+      },
+      {
+        "title": "Wer ist diese Person?",
+        "type": "image",
+        "difficulty": 20,
+        "answers": [
+          {
+            "title": "Ryan Gosling",
+            "url": "/assets/image/image3.jpg"
+          }
+        ]
+      },
+      {
+        "title": "Welches typische Accessoire fehlt dieser Person hier?",
+        "type": "image",
+        "difficulty": 20,
+        "answers": [
+          {
+            "title": "Brille",
+            "url": "/assets/image/image4.jpg"
+          }
+        ]
+      },
+      {
+        "title": "Wer ist diese Person?",
+        "type": "image",
+        "difficulty": 30,
+        "answers": [
+          {
+            "title": "Reto Scherrer",
+            "url": "/assets/image/image5.jpg"
+          }
+        ]
+      },
+      {
+        "title": "Durch welchen Film wurde diese Person berühmt?",
+        "type": "image",
+        "difficulty": 30,
+        "answers": [
+          {
+            "title": "Der König von Narnia",
+            "url": "/assets/image/image6.jpg"
+          }
+        ]
+      }
+    ]
+  }
+]
