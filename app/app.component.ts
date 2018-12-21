@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
 
     questionAnswered(data) {
         if (data.correct) {
-            this.groups[this.activeGroup].score += data.question.difficulty;
+            this.groups[this.activeGroup].score += (data.groupSwitched ? data.question.difficulty / 2 : data.question.difficulty);
         }
 
         data.question.answered = true;
@@ -71,6 +71,7 @@ export class AppComponent implements OnInit {
             return;
         }
         this.groups[this.activeGroup][type]--;
+        this.activeQuestion.jokerInUse = true;
 
         if (type === 'phone') {
             return;

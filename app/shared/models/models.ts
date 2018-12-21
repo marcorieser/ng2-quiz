@@ -2,6 +2,7 @@ export class QuestionCategory {
     title: string;
     questions: Question[];
 }
+
 export class Question {
     id: number;
     index: number;
@@ -10,7 +11,9 @@ export class Question {
     type: string;
     difficulty: number;
     answers: Answer[];
+    jokerInUse: boolean = false;
 }
+
 export class Answer {
     title: string;
     url?: string;
@@ -18,6 +21,7 @@ export class Answer {
     fifty?: boolean;
     choosen: boolean;
 }
+
 export class Group {
     "name": string;
     "score": number;

@@ -8,10 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var question_service_1 = require("./shared/service/question.service");
 var group_service_1 = require("./shared/service/group.service");
-var AppComponent = (function () {
+var AppComponent = /** @class */ (function () {
     function AppComponent(questionService, groupService) {
         this.questionService = questionService;
         this.groupService = groupService;
@@ -33,7 +34,7 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.questionAnswered = function (data) {
         if (data.correct) {
-            this.groups[this.activeGroup].score += data.question.difficulty;
+            this.groups[this.activeGroup].score += (data.groupSwitched ? data.question.difficulty / 2 : data.question.difficulty);
         }
         data.question.answered = true;
         this.activeGroup = this.lastTurn === 0 ? 1 : 0;
@@ -58,6 +59,7 @@ var AppComponent = (function () {
             return;
         }
         this.groups[this.activeGroup][type]--;
+        this.activeQuestion.jokerInUse = true;
         if (type === 'phone') {
             return;
         }
@@ -119,16 +121,16 @@ var AppComponent = (function () {
         localStorage.setItem('lastTurn', JSON.stringify(this.lastTurn));
         localStorage.setItem('groups', JSON.stringify(this.groups));
     };
+    AppComponent = __decorate([
+        core_1.Component({
+            selector: 'quiz-app',
+            templateUrl: './app/app.component.html',
+            styleUrls: ['./app/app.component.css'],
+        }),
+        __metadata("design:paramtypes", [question_service_1.QuestionService, group_service_1.GroupService])
+    ], AppComponent);
     return AppComponent;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'quiz-app',
-        templateUrl: './app/app.component.html',
-        styleUrls: ['./app/app.component.css'],
-    }),
-    __metadata("design:paramtypes", [question_service_1.QuestionService, group_service_1.GroupService])
-], AppComponent);
 exports.AppComponent = AppComponent;
 
 //# sourceMappingURL=app.component.js.map

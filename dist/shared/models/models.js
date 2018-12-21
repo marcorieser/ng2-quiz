@@ -1,23 +1,25 @@
 "use strict";
-var QuestionCategory = (function () {
+Object.defineProperty(exports, "__esModule", { value: true });
+var QuestionCategory = /** @class */ (function () {
     function QuestionCategory() {
     }
     return QuestionCategory;
 }());
 exports.QuestionCategory = QuestionCategory;
-var Question = (function () {
+var Question = /** @class */ (function () {
     function Question() {
+        this.jokerInUse = false;
     }
     return Question;
 }());
 exports.Question = Question;
-var Answer = (function () {
+var Answer = /** @class */ (function () {
     function Answer() {
     }
     return Answer;
 }());
 exports.Answer = Answer;
-var Group = (function () {
+var Group = /** @class */ (function () {
     function Group() {
     }
     return Group;

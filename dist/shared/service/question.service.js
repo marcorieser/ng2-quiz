@@ -1,9 +1,14 @@
 "use strict";
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13,24 +18,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
 var abstract_service_1 = require("./abstract.service");
-var QuestionService = (function (_super) {
+var QuestionService = /** @class */ (function (_super) {
     __extends(QuestionService, _super);
-    function QuestionService() {
-        return _super.apply(this, arguments) || this;
+    function QuestionService(http) {
+        return _super.call(this, http) || this;
     }
     QuestionService.prototype.getQuestions = function () {
         return this.http.get('/questions.json')
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
+    QuestionService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], QuestionService);
     return QuestionService;
 }(abstract_service_1.AbstractService));
-QuestionService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [])
-], QuestionService);
 exports.QuestionService = QuestionService;
 
 //# sourceMappingURL=question.service.js.map

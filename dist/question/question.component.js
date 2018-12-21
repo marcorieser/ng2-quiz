@@ -8,27 +8,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var models_1 = require("../shared/models/models");
-var QuestionComponent = (function () {
+var QuestionComponent = /** @class */ (function () {
     function QuestionComponent() {
     }
     QuestionComponent.prototype.ngOnInit = function () {
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", models_1.Question)
+    ], QuestionComponent.prototype, "question", void 0);
+    QuestionComponent = __decorate([
+        core_1.Component({
+            selector: 'question',
+            templateUrl: './app/question/question.component.html',
+            styleUrls: ['./app/question/question.component.css']
+        }),
+        __metadata("design:paramtypes", [])
+    ], QuestionComponent);
     return QuestionComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", models_1.Question)
-], QuestionComponent.prototype, "question", void 0);
-QuestionComponent = __decorate([
-    core_1.Component({
-        selector: 'question',
-        templateUrl: './app/question/question.component.html',
-        styleUrls: ['./app/question/question.component.css']
-    }),
-    __metadata("design:paramtypes", [])
-], QuestionComponent);
 exports.QuestionComponent = QuestionComponent;
 
 //# sourceMappingURL=question.component.js.map

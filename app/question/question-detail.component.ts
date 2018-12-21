@@ -26,11 +26,11 @@ export class QuestionDetailComponent implements OnInit {
 
     evaluateOthers(correct: boolean) {
         if (correct) {
-            this.questionAnswered.emit({question: this.question, correct: true});
+            this.questionAnswered.emit({question: this.question, correct: true, groupSwitched: this.groupSwitched});
             return;
         }
-        if (this.groupSwitched) {
-            this.questionAnswered.emit({question: this.question, correct: false});
+        if (this.groupSwitched || this.question.jokerInUse) {
+            this.questionAnswered.emit({question: this.question, correct: false, groupSwitched: this.groupSwitched});
             return;
         }
         this.solutionVisible = false;
@@ -40,11 +40,11 @@ export class QuestionDetailComponent implements OnInit {
 
     evaluateChoose(answer: Answer) {
         if (answer.correct) {
-            this.questionAnswered.emit({question: this.question, correct: true});
+            this.questionAnswered.emit({question: this.question, correct: true, groupSwitched: this.groupSwitched});
             return;
         }
-        if (this.groupSwitched) {
-            this.questionAnswered.emit({question: this.question, correct: false});
+        if (this.groupSwitched || this.question.jokerInUse) {
+            this.questionAnswered.emit({question: this.question, correct: false, groupSwitched: this.groupSwitched});
             return;
         }
 
