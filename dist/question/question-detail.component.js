@@ -17,17 +17,21 @@ var QuestionDetailComponent = /** @class */ (function () {
         this.switchGroup = new core_1.EventEmitter();
         this.groupSwitched = false;
     }
+    QuestionDetailComponent_1 = QuestionDetailComponent;
     QuestionDetailComponent.prototype.ngOnInit = function () {
     };
     QuestionDetailComponent.prototype.evaluateOthers = function (correct) {
         if (correct) {
             this.questionAnswered.emit({ question: this.question, correct: true, groupSwitched: this.groupSwitched });
+            QuestionDetailComponent_1.playSound(true);
             return;
         }
         if (this.groupSwitched || this.question.jokerInUse) {
             this.questionAnswered.emit({ question: this.question, correct: false, groupSwitched: this.groupSwitched });
+            QuestionDetailComponent_1.playSound(false);
             return;
         }
+        QuestionDetailComponent_1.playSound(false);
         this.solutionVisible = false;
         this.groupSwitched = true;
         this.switchGroup.emit();
@@ -35,16 +39,27 @@ var QuestionDetailComponent = /** @class */ (function () {
     QuestionDetailComponent.prototype.evaluateChoose = function (answer) {
         if (answer.correct) {
             this.questionAnswered.emit({ question: this.question, correct: true, groupSwitched: this.groupSwitched });
+            QuestionDetailComponent_1.playSound(true);
             return;
         }
         if (this.groupSwitched || this.question.jokerInUse) {
             this.questionAnswered.emit({ question: this.question, correct: false, groupSwitched: this.groupSwitched });
+            QuestionDetailComponent_1.playSound(false);
             return;
         }
         answer.choosen = true;
+        QuestionDetailComponent_1.playSound(false);
         this.groupSwitched = true;
         this.switchGroup.emit();
     };
+    QuestionDetailComponent.playSound = function (correct) {
+        if (correct === void 0) { correct = false; }
+        var audio = new Audio();
+        audio.src = correct ? 'assets/correct.mp3' : 'assets/wrong.mp3';
+        audio.load();
+        audio.play();
+    };
+    var QuestionDetailComponent_1;
     __decorate([
         core_1.Output(),
         __metadata("design:type", Object)
@@ -57,7 +72,7 @@ var QuestionDetailComponent = /** @class */ (function () {
         core_1.Input(),
         __metadata("design:type", models_1.Question)
     ], QuestionDetailComponent.prototype, "question", void 0);
-    QuestionDetailComponent = __decorate([
+    QuestionDetailComponent = QuestionDetailComponent_1 = __decorate([
         core_1.Component({
             selector: 'question-detail',
             templateUrl: './app/question/question-detail.component.html',

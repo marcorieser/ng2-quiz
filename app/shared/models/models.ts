@@ -7,6 +7,7 @@ export class Question {
     id: number;
     index: number;
     title: string;
+    tile: string = '';
     answered: boolean;
     type: string;
     difficulty: number;

@@ -8,6 +8,7 @@ var QuestionCategory = /** @class */ (function () {
 exports.QuestionCategory = QuestionCategory;
 var Question = /** @class */ (function () {
     function Question() {
+        this.tile = '';
         this.jokerInUse = false;
     }
     return Question;
