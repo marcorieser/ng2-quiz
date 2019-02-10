@@ -4,4 +4,5 @@ typings
 assets/
 groups.json
 questions.json
-_*
+*.*
+!styles/*
