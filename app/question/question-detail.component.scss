@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 :host {
     display: block;
 }
@@ -17,7 +19,8 @@ h2 {
 .video, .image, .audio {
     margin-bottom: 20px;
     position: relative;
-    background: transparentize(#fff, 0.8);
+    background: $color-question-media-bg;
+
     &:before {
         content: '';
         display: block;
@@ -29,9 +32,9 @@ h2 {
         top: 0;
         left: 0;
         width: 100%;
-        background: #3a0704;
+        background: $color-question-media-solution-bg;
         padding: 10px;
-        color: #fff;
+        color: $color-question-media-solution-text;
 
         h3 {
             display: inline-block;
@@ -39,6 +42,7 @@ h2 {
             margin: 0 20px 0 0;
             line-height: 45px;
         }
+
         .btn {
             vertical-align: middle;
         }
@@ -71,7 +75,7 @@ audio {
 }
 
 .grid {
-    border: solid #ddd;
+    border: solid $color-grid-border;
     border-width: 1px 0 0 1px;
     font-size: 2em;
     height: 50vh;
@@ -86,19 +90,19 @@ audio {
     width: 50%;
     float: left;
     height: 50%;
-    border: solid #ddd;
+    border: solid $color-grid-border;
     border-width: 0 1px 1px 0;
-    color: transparentize(#fff, 0.5);
+    color: $color-question-pattern-text;
     padding: 0 20px;
 
     &.available {
         cursor: pointer;
         transition: background 0.3s;
-        color: #fff;
-        background: transparentize(#fff, 0.9);
+        color: $color-question-pattern-available-text;
+        background: $color-question-pattern-available-bg;
 
         &:hover {
-            background: transparentize(#fff, 0.7);
+            background: $color-question-pattern-available-hover-bg;
         }
     }
 }

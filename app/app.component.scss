@@ -1,3 +1,4 @@
+@import "../styles/variables";
 h1 {
     font-size: 6em;
     display: flex;
@@ -33,7 +34,7 @@ h1 {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    border-right: 1px solid #ddd;
+    border-right: 1px solid $color-grid-border;
     width: 25%;
 }
 
@@ -49,8 +50,8 @@ h1 {
     justify-content: center;
     text-align: center;
     flex-direction: column;
-    border-bottom: 1px solid #ddd;
-    background: transparentize(#fff, 0.9);
+    border-bottom: 1px solid $color-grid-border;
+    background: $color-grid-title-bg;
 }
 
 question {
@@ -59,17 +60,17 @@ question {
     text-align: center;
     flex-direction: column;
     flex-grow: 1;
-    border-bottom: 1px solid #ddd;
-    color: transparentize(#fff, 0.5);
+    border-bottom: 1px solid $color-grid-border;
+    color: $color-grid-question-text;
 
     &.available {
         cursor: pointer;
         transition: background 0.3s;
-        color: #fff;
-        background: transparentize(#fff, 0.9);
+        color: $color-grid-question-available-text;
+        background: $color-grid-question-available-bg;
 
         &:hover {
-            background: transparentize(#fff, 0.7);
+            background: $color-grid-question-available-hover-bg;
         }
     }
 }
@@ -79,8 +80,8 @@ question {
     left: 0;
     bottom: 0;
     width: 100%;
-    background: #3a0704;
-    color: #fff;
+    background: $color-bottom-bar-bg;
+    color: $color-bottom-bar-text;
     font-size: 1.2em;
     vertical-align: middle;
 
@@ -90,7 +91,7 @@ question {
         display: inline-block;
 
         &.active {
-            background: transparentize(#fff, 0.7);
+            background: $color-bottom-group-bg;
         }
 
         span {
