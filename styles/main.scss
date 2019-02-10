@@ -5,8 +5,24 @@ html, body {
 body {
     padding-bottom: 80px;
     -webkit-font-smoothing: antialiased;
+    background: url(../assets/background.jpg) no-repeat center center;
+    background-size: cover;
+    color: white;
+    position: relative;
+
+    &:before {
+        content: '';
+        background: rgba(#000, 0.2);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 quiz-app {
     display: block;
+    position: relative;
+    z-index: 1;
 }
