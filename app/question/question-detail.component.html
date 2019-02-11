@@ -1,9 +1,10 @@
-<h2 *ngIf="!solutionVisible">{{ question.title }}</h2>
-<h2 *ngIf="solutionVisible">{{ question.answers[0].title }}</h2>
+<h2 *ngIf="!solutionVisible"><span [innerHTML]="question.title | keepHtml"></span></h2>
+<h2 *ngIf="solutionVisible" class="correct">{{ correctAnswer || question.answers[0].title }}</h2>
 <div [ngSwitch]="question.type">
     <template [ngSwitchCase]="'choose'">
         <div class="grid clearfix">
-            <div class="pattern" *ngFor="let answer of question.answers" (click)="evaluateChoose(answer)" [class.available]="!answer.choosen">
+            <div class="pattern" *ngFor="let answer of question.answers" (click)="evaluateChoose(answer)"
+                 [class.available]="!answer.choosen">
                 {{ answer.title }}
             </div>
         </div>

@@ -16,6 +16,7 @@ var AppComponent = /** @class */ (function () {
     function AppComponent(questionService, groupService) {
         this.questionService = questionService;
         this.groupService = groupService;
+        this.groupSwitched = false;
     }
     AppComponent.prototype.ngOnInit = function () {
         if (this.loadGame()) {
@@ -31,6 +32,7 @@ var AppComponent = /** @class */ (function () {
     };
     AppComponent.prototype.switchGroup = function () {
         this.activeGroup = this.activeGroup === 0 ? 1 : 0;
+        this.groupSwitched = true;
     };
     AppComponent.prototype.questionAnswered = function (data) {
         if (data.correct) {
@@ -40,6 +42,7 @@ var AppComponent = /** @class */ (function () {
         this.activeGroup = this.lastTurn === 0 ? 1 : 0;
         this.lastTurn = this.activeGroup;
         this.activeQuestion = null;
+        this.groupSwitched = false;
         this.saveGame();
     };
     AppComponent.prototype.jokerAvailable = function (type, group) {
@@ -50,6 +53,9 @@ var AppComponent = /** @class */ (function () {
             return false;
         }
         if (group !== this.activeGroup) {
+            return false;
+        }
+        if (this.groupSwitched) {
             return false;
         }
         return this.groups[this.activeGroup][type];

@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
     activeQuestion: Question;
     lastTurn: number;
     activeGroup: number;
+    groupSwitched: boolean = false;
     groups: Group[];
 
     constructor(private questionService: QuestionService, private groupService: GroupService) {
@@ -35,6 +36,7 @@ export class AppComponent implements OnInit {
 
     switchGroup() {
         this.activeGroup = this.activeGroup === 0 ? 1 : 0;
+        this.groupSwitched = true;
     }
 
     questionAnswered(data) {
@@ -47,6 +49,7 @@ export class AppComponent implements OnInit {
         this.activeGroup = this.lastTurn === 0 ? 1 : 0;
         this.lastTurn = this.activeGroup;
         this.activeQuestion = null;
+        this.groupSwitched = false;
 
         this.saveGame();
     }
@@ -63,6 +66,11 @@ export class AppComponent implements OnInit {
         if (group !== this.activeGroup) {
             return false;
         }
+
+        if (this.groupSwitched) {
+            return false;
+        }
+
         return this.groups[this.activeGroup][type];
     }
 

@@ -58,7 +58,7 @@ gulp.task('serve', function () {
             logConnections: false,
             logFileChanges: false,
             injectChanges:  false, // workaround for Angular 2 styleUrls loading
-            files:          ['./**/*.{html,htm,css,js}'],
+            files:          ['./**/*.{html,htm,css,js,json}'],
             watchOptions:   {
                 ignored: 'node_modules'
             },

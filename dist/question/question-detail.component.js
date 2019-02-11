@@ -16,6 +16,7 @@ var QuestionDetailComponent = /** @class */ (function () {
         this.questionAnswered = new core_1.EventEmitter();
         this.switchGroup = new core_1.EventEmitter();
         this.groupSwitched = false;
+        this.correctAnswer = '';
     }
     QuestionDetailComponent_1 = QuestionDetailComponent;
     QuestionDetailComponent.prototype.ngOnInit = function () {
@@ -37,20 +38,40 @@ var QuestionDetailComponent = /** @class */ (function () {
         this.switchGroup.emit();
     };
     QuestionDetailComponent.prototype.evaluateChoose = function (answer) {
+        var _this = this;
         if (answer.correct) {
-            this.questionAnswered.emit({ question: this.question, correct: true, groupSwitched: this.groupSwitched });
             QuestionDetailComponent_1.playSound(true);
-            return;
-        }
-        if (this.groupSwitched || this.question.jokerInUse) {
-            this.questionAnswered.emit({ question: this.question, correct: false, groupSwitched: this.groupSwitched });
-            QuestionDetailComponent_1.playSound(false);
+            this.correctAnswer = answer.title;
+            this.solutionVisible = true;
+            setTimeout(function () {
+                _this.questionAnswered.emit({ question: _this.question, correct: true, groupSwitched: _this.groupSwitched });
+            }, 3000);
             return;
         }
         answer.choosen = true;
         QuestionDetailComponent_1.playSound(false);
+        if (this.groupSwitched || this.question.jokerInUse) {
+            this.correctAnswer = this.getCorrectAnswer().title;
+            this.solutionVisible = true;
+            setTimeout(function () {
+                _this.questionAnswered.emit({
+                    question: _this.question,
+                    correct: false,
+                    groupSwitched: _this.groupSwitched
+                });
+            }, 5000);
+            return;
+        }
         this.groupSwitched = true;
         this.switchGroup.emit();
+    };
+    QuestionDetailComponent.prototype.getCorrectAnswer = function () {
+        for (var _i = 0, _a = this.question.answers; _i < _a.length; _i++) {
+            var answer = _a[_i];
+            if (answer.correct) {
+                return answer;
+            }
+        }
     };
     QuestionDetailComponent.playSound = function (correct) {
         if (correct === void 0) { correct = false; }

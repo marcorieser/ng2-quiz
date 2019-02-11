@@ -21,3 +21,6 @@ $color-question-pattern-text: transparentize($color-body-text, 0.5);
 $color-question-pattern-available-text: $color-body-text;
 $color-question-pattern-available-bg: transparentize($color-body-text, 0.9);
 $color-question-pattern-available-hover-bg: transparentize($color-body-text, 0.7);
+
+$color-question-correct-bg: transparentize($color-body-text, 0.5);
+$color-question-correct-text: $color-main;

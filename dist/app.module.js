@@ -17,13 +17,14 @@ var question_service_1 = require("./shared/service/question.service");
 var question_component_1 = require("./question/question.component");
 var question_detail_component_1 = require("./question/question-detail.component");
 var group_service_1 = require("./shared/service/group.service");
+var keep_html_pipe_1 = require("./shared/pipes/keep-html.pipe");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
-            declarations: [app_component_1.AppComponent, question_component_1.QuestionComponent, question_detail_component_1.QuestionDetailComponent],
+            declarations: [app_component_1.AppComponent, question_component_1.QuestionComponent, question_detail_component_1.QuestionDetailComponent, keep_html_pipe_1.EscapeHtmlPipe],
             providers: [question_service_1.QuestionService, group_service_1.GroupService],
             bootstrap: [app_component_1.AppComponent]
         })
