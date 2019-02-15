@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {QuestionService} from "./shared/service/question.service";
 import {QuestionCategory, Question, Group} from "./shared/models/models";
 import {GroupService} from "./shared/service/group.service";
+import {SoundService} from "./shared/service/sound.service";
 
 @Component({
     selector: 'quiz-app',
@@ -17,7 +18,7 @@ export class AppComponent implements OnInit {
     groupSwitched: boolean = false;
     groups: Group[];
 
-    constructor(private questionService: QuestionService, private groupService: GroupService) {
+    constructor(private questionService: QuestionService, private groupService: GroupService, private soundService: SoundService) {
     }
 
     ngOnInit() {
@@ -41,7 +42,11 @@ export class AppComponent implements OnInit {
 
     questionAnswered(data) {
         if (data.correct) {
-            this.groups[this.activeGroup].score += (data.groupSwitched ? data.question.difficulty / 2 : data.question.difficulty);
+            // this.groups[this.activeGroup].score += (data.groupSwitched ? data.question.difficulty / 2 : data.question.difficulty);
+            let max: number = 6, min: number = 2, factor: number = 10,
+                randomNumber: number = (Math.floor(Math.random() * (max - min + 1)) + min) * factor;
+
+            this.groups[this.activeGroup].score += (data.groupSwitched ? randomNumber / 2 : randomNumber);
         }
 
         data.question.answered = true;
@@ -71,6 +76,10 @@ export class AppComponent implements OnInit {
             return false;
         }
 
+        if (this.activeQuestion.jokerInUse) {
+            return false;
+        }
+
         return this.groups[this.activeGroup][type];
     }
 
@@ -80,6 +89,8 @@ export class AppComponent implements OnInit {
         }
         this.groups[this.activeGroup][type]--;
         this.activeQuestion.jokerInUse = true;
+
+        this.soundService.playSound('click');
 
         if (type === 'phone') {
             return;

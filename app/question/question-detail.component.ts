@@ -1,6 +1,6 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Question, Answer} from "../shared/models/models";
-import forEach = require("core-js/fn/array/for-each");
+import {SoundService} from "../shared/service/sound.service";
 
 @Component({
     selector: 'question-detail',
@@ -20,7 +20,7 @@ export class QuestionDetailComponent implements OnInit {
     solutionVisible: boolean;
     correctAnswer: string = '';
 
-    constructor() {
+    constructor(private soundService: SoundService) {
     }
 
     ngOnInit() {
@@ -29,15 +29,16 @@ export class QuestionDetailComponent implements OnInit {
     evaluateOthers(correct: boolean) {
         if (correct) {
             this.questionAnswered.emit({question: this.question, correct: true, groupSwitched: this.groupSwitched});
-            QuestionDetailComponent.playSound(true);
+            this.soundService.playSound('correct');
             return;
         }
         if (this.groupSwitched || this.question.jokerInUse) {
             this.questionAnswered.emit({question: this.question, correct: false, groupSwitched: this.groupSwitched});
-            QuestionDetailComponent.playSound(false);
+            this.soundService.playSound('wrong');
             return;
         }
-        QuestionDetailComponent.playSound(false);
+        this.soundService.playSound('wrong');
+
         this.solutionVisible = false;
         this.groupSwitched = true;
         this.switchGroup.emit();
@@ -45,7 +46,8 @@ export class QuestionDetailComponent implements OnInit {
 
     evaluateChoose(answer: Answer) {
         if (answer.correct) {
-            QuestionDetailComponent.playSound(true);
+            this.soundService.playSound('correct');
+
             this.correctAnswer = answer.title;
             this.solutionVisible = true;
             setTimeout(() => {
@@ -55,7 +57,7 @@ export class QuestionDetailComponent implements OnInit {
         }
 
         answer.choosen = true;
-        QuestionDetailComponent.playSound(false);
+        this.soundService.playSound('wrong');
 
         if (this.groupSwitched || this.question.jokerInUse) {
             this.correctAnswer = this.getCorrectAnswer().title;
@@ -80,13 +82,5 @@ export class QuestionDetailComponent implements OnInit {
                 return answer;
             }
         }
-    }
-
-
-    static playSound(correct: boolean = false) {
-        let audio = new Audio();
-        audio.src = correct ? 'assets/correct.mp3' : 'assets/wrong.mp3';
-        audio.load();
-        audio.play();
     }
 }

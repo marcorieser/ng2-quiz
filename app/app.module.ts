@@ -10,12 +10,13 @@ import {QuestionService} from "./shared/service/question.service";
 import {QuestionComponent} from "./question/question.component";
 import {QuestionDetailComponent} from "./question/question-detail.component";
 import {GroupService} from "./shared/service/group.service";
+import {SoundService} from "./shared/service/sound.service";
 import {EscapeHtmlPipe} from "./shared/pipes/keep-html.pipe"
 
 @NgModule({
     imports: [BrowserModule, HttpModule],
     declarations: [AppComponent, QuestionComponent, QuestionDetailComponent, EscapeHtmlPipe],
-    providers: [QuestionService, GroupService],
+    providers: [QuestionService, GroupService, SoundService],
     bootstrap: [AppComponent]
 })
 

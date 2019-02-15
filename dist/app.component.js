@@ -12,10 +12,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var question_service_1 = require("./shared/service/question.service");
 var group_service_1 = require("./shared/service/group.service");
+var sound_service_1 = require("./shared/service/sound.service");
 var AppComponent = /** @class */ (function () {
-    function AppComponent(questionService, groupService) {
+    function AppComponent(questionService, groupService, soundService) {
         this.questionService = questionService;
         this.groupService = groupService;
+        this.soundService = soundService;
         this.groupSwitched = false;
     }
     AppComponent.prototype.ngOnInit = function () {
@@ -36,7 +38,9 @@ var AppComponent = /** @class */ (function () {
     };
     AppComponent.prototype.questionAnswered = function (data) {
         if (data.correct) {
-            this.groups[this.activeGroup].score += (data.groupSwitched ? data.question.difficulty / 2 : data.question.difficulty);
+            // this.groups[this.activeGroup].score += (data.groupSwitched ? data.question.difficulty / 2 : data.question.difficulty);
+            var max = 6, min = 2, factor = 10, randomNumber = (Math.floor(Math.random() * (max - min + 1)) + min) * factor;
+            this.groups[this.activeGroup].score += (data.groupSwitched ? randomNumber / 2 : randomNumber);
         }
         data.question.answered = true;
         this.activeGroup = this.lastTurn === 0 ? 1 : 0;
@@ -58,6 +62,9 @@ var AppComponent = /** @class */ (function () {
         if (this.groupSwitched) {
             return false;
         }
+        if (this.activeQuestion.jokerInUse) {
+            return false;
+        }
         return this.groups[this.activeGroup][type];
     };
     AppComponent.prototype.setJoker = function (type, group) {
@@ -66,6 +73,7 @@ var AppComponent = /** @class */ (function () {
         }
         this.groups[this.activeGroup][type]--;
         this.activeQuestion.jokerInUse = true;
+        this.soundService.playSound('click');
         if (type === 'phone') {
             return;
         }
@@ -133,7 +141,7 @@ var AppComponent = /** @class */ (function () {
             templateUrl: './app/app.component.html',
             styleUrls: ['./app/app.component.css'],
         }),
-        __metadata("design:paramtypes", [question_service_1.QuestionService, group_service_1.GroupService])
+        __metadata("design:paramtypes", [question_service_1.QuestionService, group_service_1.GroupService, sound_service_1.SoundService])
     ], AppComponent);
     return AppComponent;
 }());
