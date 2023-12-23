@@ -1,8 +1,5 @@
-node_modules
-typings
 .idea
 assets/
-groups.json
-questions.json
 *.*
 !styles/*
+!.nvmrc
